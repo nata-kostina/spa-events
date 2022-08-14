@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { JsxElement } from 'typescript';
+import { useAppSelector } from '../hooks/hooks';
 
 export default function PrivateRoute({ children }: { children: JSX.Element }) {
-  const isAuth = true;
+  const { isAuth } = useAppSelector((state) => state.auth);
   return isAuth ? children : <Navigate to="/login" />;
 }
