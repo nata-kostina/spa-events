@@ -2,22 +2,15 @@ import { Layout } from 'antd';
 import { Header, Content, Footer } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
 import React from 'react';
+import BaseLayout from '../../components/BaseLayout';
 import Navigation from '../../components/Navigation';
 
 const Homepage = () => {
   const isAuth = true;
   return (
-    <Layout className="wrapper">
-      <Layout>
-        <Header>
-          <Navigation />
-        </Header>
-        <Layout>
-          <Content>main content</Content>
-        </Layout>
-        <Footer>footer</Footer>
-      </Layout>
-    </Layout>
+    <BaseLayout>
+      <Content>main content</Content>
+    </BaseLayout>
   );
 };
 

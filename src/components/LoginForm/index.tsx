@@ -5,21 +5,23 @@ import {
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import users from '../../data/users';
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { RootState } from '../../store';
 import Actions from '../../store/store_types/actions';
-import { SPARoutes } from '../../types/types';
+import { SPARoutes, UserParams } from '../../types/types';
 import rules from '../../utils/rules';
-import UserService from './../../api/UserService';
+import UserService from '../../api/UsersService';
 
 const LoginForm = () => {
   const { isAuth } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
-  const onFinish = (values: { email: string, password: string }) => {
+  const onFinish = (values: UserParams) => {
     const user = UserService.getUser(values);
     if (user) {
       dispatch({ type: Actions.SET_AUTH, payload: true });
+      dispatch({ type: Actions.SET_USER, payload: values });
     } else {
       Modal.error({
         title: 'Error',
@@ -32,7 +34,7 @@ const LoginForm = () => {
     <>
       {isAuth && <Navigate to={SPARoutes.EVENTS} />}
       <Form
-        name="basic"
+        name="login"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}

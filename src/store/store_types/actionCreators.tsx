@@ -1,3 +1,4 @@
+import { IUser, UserParams } from '../../types/types';
 import Actions from './actions';
 
 export interface SetAuth {
@@ -5,4 +6,10 @@ export interface SetAuth {
   payload: boolean;
 }
 
-export type AllActions = SetAuth;
+export interface SetUser {
+  type: Actions.SET_USER,
+  payload: UserParams;
+}
+
+export type AllActions = SetAuth |
+SetUser;
