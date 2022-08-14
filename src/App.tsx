@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Homepage from './pages/Homepage/index';
 import PrivateRoute from './PrivateRoute';
 import { SPARoutes } from './types/types';
+import './App.css';
 
 function App() {
   return (
