@@ -24,6 +24,9 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-      "@typescript-eslint/no-explicit-any": "off"
+      "@typescript-eslint/no-explicit-any": "off",
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "react/function-component-definition": "off",
+      "@typescript-eslint/no-unused-vars": "off",
     },
 }

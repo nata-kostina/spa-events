@@ -1,8 +1,31 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import Events from './pages/Events';
+import Login from './pages/Login';
+import Homepage from './pages/Homepage/index';
+import PrivateRoute from './PrivateRoute';
+import { SPARoutes } from './types/types';
 
 function App() {
   return (
-    <div className="App" />
+    <BrowserRouter>
+      <Routes>
+        <Route path={SPARoutes.LOGIN} element={<Login />} />
+        <Route
+          path={SPARoutes.EVENTS}
+          element={(
+            <PrivateRoute>
+              <Events />
+            </PrivateRoute>
+      )}
+        />
+        <Route path={SPARoutes.HOMEPAGE} element={<Homepage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
