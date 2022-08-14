@@ -2,8 +2,13 @@ import {
   Form, Input, Checkbox, Button,
 } from 'antd';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
+import { RootState } from '../../store';
 
 const LoginForm = () => {
+  const { isAuth } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };

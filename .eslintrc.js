@@ -28,5 +28,6 @@ module.exports = {
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
       "react/function-component-definition": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/default-param-last": "off",
     },
 }
